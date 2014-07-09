@@ -457,6 +457,7 @@ define( 'WP_DEBUG', true );
 PHP
 		wp core install --url=local.wordpress.dev --quiet --title="Local WordPress Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
 		wp theme install https://github.com/eddiemachado/bones/archive/master.zip --activate
+		wp rewrite structure '/%postname%/'
 	else
 		echo "Updating WordPress Stable..."
 		cd /srv/www/wordpress-default
@@ -483,6 +484,7 @@ define( 'WP_DEBUG', true );
 PHP
 		wp core install --url=local.wordpress-trunk.dev --quiet --title="Local WordPress Trunk Dev" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
 		wp theme install https://github.com/eddiemachado/bones/archive/master.zip --activate
+		wp rewrite structure '/%postname%/'
 	else
 		echo "Updating WordPress trunk..."
 		cd /srv/www/wordpress-trunk
@@ -506,6 +508,8 @@ define( 'WP_DEBUG', true );
 PHP
 		wp core install --url=src.wordpress-develop.dev --quiet --title="WordPress Develop" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password"
 		wp theme install https://github.com/eddiemachado/bones/archive/master.zip --activate
+		wp rewrite structure '/%postname%/'
+		
 		cp /srv/config/wordpress-config/wp-tests-config.php /srv/www/wordpress-develop/
 		cd /srv/www/wordpress-develop/
 		npm install &>/dev/null
